@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Earn Money App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 20px; }
+        .task { background: #f0f8ff; padding: 15px; margin: 10px; border-radius: 10px; }
+        button { background: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h2>💰 पैसे कमाएं</h2>
+    <div class="task">
+        <h3>विज्ञापन देखें (30 सेकंड)</h3>
+        <button onclick="completeTask()">शुरू करें</button>
+    </div>
+    
+    <script>
+    let earned = 0;
+    
+    function completeTask() {
+        Telegram.WebApp.showAlert("विज्ञापन चल रहा है... 30 सेकंड बाद पैसे मिलेंगे!");
+        setTimeout(() => {
+            earned += 50;
+            document.getElementById("balance").innerText = earned;
+            Telegram.WebApp.showAlert("🎉 50 रुपये क्रेडिट हुए!");
+        }, 30000);
+    }
+    </script>
+</body>
+</html>
